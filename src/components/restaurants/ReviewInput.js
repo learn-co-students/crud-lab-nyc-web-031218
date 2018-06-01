@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class RestaurantInput extends Component {
+class ReviewInput extends Component {
 
 
     state = {
@@ -16,8 +16,8 @@ class RestaurantInput extends Component {
   handleOnSubmit(event) {
     event.preventDefault();
     this.props.store.dispatch({
-      type: 'ADD_RESTAURANT',
-      restaurant: this.state,
+      type: 'ADD_REVIEW',
+      review: { ...this.state, id: this.props.restaurantId }
     });
     this.setState({
       text: '',
@@ -29,7 +29,7 @@ class RestaurantInput extends Component {
       <div>
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
           <p>
-            <label>New Restaurant:</label>
+            <label>New Review:</label>
             <input
               type="text"
               value={this.state.text}
@@ -42,4 +42,4 @@ class RestaurantInput extends Component {
   }
 };
 
-export default RestaurantInput;
+export default ReviewInput;
