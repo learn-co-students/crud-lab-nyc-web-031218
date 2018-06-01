@@ -11,10 +11,12 @@ export default class Review extends Component {
 
   render() {
     return (
-      <li>
-        {this.props.review.text}
-        <button onClick={this.handleOnClick}>Delete</button>
-      </li>
+      <div>
+        <li>
+          {this.props.review.text}
+        </li>
+        <button onClick={() => this.handleOnClick()}> X </button>
+      </div>
     );
   }
 };
